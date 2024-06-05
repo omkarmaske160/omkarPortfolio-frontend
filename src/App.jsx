@@ -14,7 +14,7 @@ import Certificates from './pages/Certificates';
 const App = () => {
   return <>
     <BrowserRouter >
-      <div className="flex flex-col min-h-[100dvh]">
+      <div className="flex flex-col min-h-[100dvh] bg-slate-900">
         <Navbar />
         <Home />
         <About />
@@ -24,8 +24,6 @@ const App = () => {
         <Experience />
         <Certificates />
         <Contact />
-
-
       </div>
 
     </BrowserRouter>

@@ -2,4 +2,87 @@
 @tailwind components;
 @tailwind utilities;
 
-@import '@fortawesome/fontawesome-free/css/all.min.css';
+.skills-heading {
+    position: relative;
+    text-align: center;
+    font-weight: bold;
+    font-size: 3rem;
+    color: rgb(173, 172, 172);
+    /* Adjust as needed */
+    margin-bottom: 2rem;
+    /* Adjust as needed */
+    z-index: 2;
+}
+
+.skills-heading::before {
+    content: 'My Skills';
+    /* Duplicate the heading text */
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 5rem;
+    /* Larger font size for the background text */
+    color: rgba(255, 255, 255, 0.059);
+    /* Light color for the background text */
+    z-index: -1;
+}
+
+.contact-heading {
+    position: relative;
+    text-align: center;
+    font-weight: bold;
+    font-size: 3rem;
+    color: rgb(173, 172, 172);
+    /* Adjust as needed */
+    margin-bottom: 2rem;
+    /* Adjust as needed */
+    z-index: 2;
+}
+
+.contact-heading::before {
+    content: 'Contact Me';
+    /* Duplicate the heading text */
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 5rem;
+    /* Larger font size for the background text */
+    color: rgba(255, 255, 255, 0.059);
+    /* Light color for the background text */
+    z-index: -1;
+}
+
+@media (max-width: 600px) {
+    .skills-heading {
+        font-size: 3rem;
+        padding-bottom: 5rem;
+
+        /* Reduce font size for small screens */
+        margin-bottom: 1.5rem;
+        /* Adjust margin as needed */
+    }
+
+    .skills-heading::before {
+        font-size: 4rem;
+        padding-bottom: 10rem;
+
+        /* Reduce font size for background text */
+    }
+
+    .contact-heading {
+        font-size: 3rem;
+        padding-bottom: 5rem;
+        /* Reduce font size for small screens */
+        margin-bottom: 1.5rem;
+        /* Adjust margin as needed */
+    }
+
+    .contact-heading::before {
+        font-size: 4rem;
+        padding-bottom: 10rem;
+
+        /* Reduce font size for background text */
+    }
+}
