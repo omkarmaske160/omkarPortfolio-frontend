@@ -10,9 +10,9 @@ const About = () => {
         { key: 'Phone', value: '+91 8080328556' }
     ];
     return <>
-        <div className=" text-white p-8 w-full md:mt-10 md:mb-16">
+        <div className=" text-white p-8 w-full  md:mb-16">
             <div className="max-w-screen-lg mx-auto">
-                <div className="flex flex-col md:flex-row items-center md:items-start">
+                <div className="flex flex-col md:flex-row items-center md:items-start md:gap-10">
                     <div className="flex-shrink-0 mb-6 md:mb-0 md:mr-6 w-1/2">
                         <img
                             src="https://img.freepik.com/free-vector/blond-man-with-eyeglasses-icon-isolated_24911-100831.jpg?t=st=1717569749~exp=1717573349~hmac=96800c7d7cc725a97140211ee6875c8dfc2625a4a4f1f82c0acb3c2bcab6b08c&w=740" // Replace with the actual image source if available
