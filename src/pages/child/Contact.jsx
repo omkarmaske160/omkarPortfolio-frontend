@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Contact = () => {
     return <>
@@ -25,9 +26,9 @@ const Contact = () => {
 
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-5  ">
-                    <div className="md:flex md:justify-center hidden ">
+                    <Link to="/protected" className="md:flex md:justify-center hidden cursor-default ">
                         <img src="https://img.freepik.com/free-vector/internship-job-illustration_52683-49386.jpg?t=st=1717562191~exp=1717565791~hmac=4e21df7114b5532417858ebe9482f4c490ba4c3a71016099fa75024203962a51&w=740" alt="Dummy" className="rounded-lg w-[80%]" />
-                    </div>
+                    </Link>
                     <div className="bg-gray-800 p-8 rounded-lg">
                         <form className="space-y-4">
                             <div>
