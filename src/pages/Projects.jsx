@@ -1,73 +1,73 @@
-import React from 'react'
+import React from 'react';
+import 'tailwindcss/tailwind.css'; // Import Tailwind CSS
+
+const projectsData = [
+    {
+        title: 'Project 1',
+        description: 'A web application that allows users to manage their tasks and projects.',
+        imgSrc: '/placeholder.svg',
+        technologies: ['React.js', 'Node.js', 'MongoDB'],
+        githubLink: '#',
+        liveLink: '#'
+    },
+    {
+        title: 'Project 2',
+        description: 'A responsive e-commerce website for a clothing brand.',
+        imgSrc: '/placeholder.svg',
+        technologies: ['Next.js', 'Stripe', 'Tailwind CSS'],
+        githubLink: '#',
+        liveLink: '#'
+    },
+    {
+        title: 'Project 3',
+        description: 'A data visualization dashboard for a financial services company.',
+        imgSrc: '/placeholder.svg',
+        technologies: ['React.js', 'D3.js', 'Firebase'],
+        githubLink: '#',
+        liveLink: '#'
+    }
+];
 
 const Projects = () => {
-    return <>
-        <section id="projects" className="bg-gray-100  py-16 px-4 md:px-8">
-            <h2 className="text-3xl font-bold mb-8">My Projects</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div className="bg-white  p-6 rounded-md shadow-md">
-                    <img src="/placeholder.svg" alt="Project 1" className="w-full rounded-md mb-4" />
-                    <h3 className="text-xl font-bold mb-2">Project 1</h3>
-                    <p className="text-gray-600  mb-4">
-                        A web application that allows users to manage their tasks and projects.
-                    </p>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                        <span className="bg-blue-500 text-white px-3 py-1 rounded-md">React.js</span>
-                        <span className="bg-blue-500 text-white px-3 py-1 rounded-md">Node.js</span>
-                        <span className="bg-blue-500 text-white px-3 py-1 rounded-md">MongoDB</span>
-                    </div>
-                    <div className="flex gap-4">
-                        <a href="#" className="text-blue-500 hover:text-blue-600 transition-colors">
-                            Live Demo
-                        </a>
-                        <a href="#" className="text-blue-500 hover:text-blue-600 transition-colors">
-                            GitHub
-                        </a>
-                    </div>
-                </div>
-                <div className="bg-white  p-6 rounded-md shadow-md">
-                    <img src="/placeholder.svg" alt="Project 2" className="w-full rounded-md mb-4" />
-                    <h3 className="text-xl font-bold mb-2">Project 2</h3>
-                    <p className="text-gray-600  mb-4">
-                        A responsive e-commerce website for a clothing brand.
-                    </p>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                        <span className="bg-blue-500 text-white px-3 py-1 rounded-md">Next.js</span>
-                        <span className="bg-blue-500 text-white px-3 py-1 rounded-md">Stripe</span>
-                        <span className="bg-blue-500 text-white px-3 py-1 rounded-md">Tailwind CSS</span>
-                    </div>
-                    <div className="flex gap-4">
-                        <a href="#" className="text-blue-500 hover:text-blue-600 transition-colors">
-                            Live Demo
-                        </a>
-                        <a href="#" className="text-blue-500 hover:text-blue-600 transition-colors">
-                            GitHub
+    return (
+        <section id="projects" className="py-16 px-4 md:px-8">
+            <h2 className="project-heading">Projects</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-20">
+                {projectsData.map((project, index) => (
+                    <div
+                        key={index}
+                        className="relative group bg-slate-700 rounded-md shadow-md overflow-hidden h-[20rem] "
+                    >
+                        <a href={project.liveLink} className="block h-full">
+                            <img
+                                src={project.imgSrc}
+                                alt={project.title}
+                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-tl from-blue-500 to-yellow-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                <div className="absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-between p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                    <div>
+                                        <h3 className="text-xl font-bold mb-2 text-yellow-500">{project.title}</h3>
+                                        <p className="text-white mb-4">{project.description}</p>
+                                        <div className="flex flex-wrap gap-2 mb-4">
+                                            {project.technologies.map((tech, techIndex) => (
+                                                <span key={techIndex} className="bg-yellow-500 text-black font-bold px-3 py-1 rounded-md">{tech}</span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                    <div className="mt-4">
+                                        <a href={project.githubLink} className="text-white hover:text-yellow-500 transition-colors">
+                                            GitHub
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </a>
                     </div>
-                </div>
-                <div className="bg-white  p-6 rounded-md shadow-md">
-                    <img src="/placeholder.svg" alt="Project 3" className="w-full rounded-md mb-4" />
-                    <h3 className="text-xl font-bold mb-2">Project 3</h3>
-                    <p className="text-gray-600  mb-4">
-                        A data visualization dashboard for a financial services company.
-                    </p>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                        <span className="bg-blue-500 text-white px-3 py-1 rounded-md">React.js</span>
-                        <span className="bg-blue-500 text-white px-3 py-1 rounded-md">D3.js</span>
-                        <span className="bg-blue-500 text-white px-3 py-1 rounded-md">Firebase</span>
-                    </div>
-                    <div className="flex gap-4">
-                        <a href="#" className="text-blue-500 hover:text-blue-600 transition-colors">
-                            Live Demo
-                        </a>
-                        <a href="#" className="text-blue-500 hover:text-blue-600 transition-colors">
-                            GitHub
-                        </a>
-                    </div>
-                </div>
+                ))}
             </div>
         </section>
-    </>
+    );
 }
 
-export default Projects
+export default Projects;

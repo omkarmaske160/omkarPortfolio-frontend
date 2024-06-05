@@ -10,7 +10,7 @@ const Contact = () => {
                     <div className="text-center">
                         <i className="fas fa-map-marker-alt text-4xl text-yellow-500 mb-2"></i>
                         <h3 className="text-xl font-bold text-yellow-500">ADDRESS</h3>
-                        <p>Sai Palace Aurangpura, Aurangabad 431001</p>
+                        <p>Sai Palace Aurangpura, Chh. Sambhajinagar 431001</p>
                     </div>
                     <div className="text-center">
                         <i className="fas fa-phone text-4xl text-yellow-500 mb-2"></i>

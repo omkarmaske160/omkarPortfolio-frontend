@@ -4,7 +4,7 @@ const About = () => {
     const userDetails = [
         { key: 'Name', value: 'Omkar Makse' },
         { key: 'Date of birth', value: '03 Augest 2003' },
-        { key: 'Address', value: 'Sai Palace Aurangpura' },
+        { key: 'Address', value: 'Sai Palace Aurangpura Chh. Sambhajinagar' },
         { key: 'Zip code', value: '431001' },
         { key: 'Email', value: 'omkarmaske160@gmail.com' },
         { key: 'Phone', value: '+91 8080328556' }
@@ -28,7 +28,7 @@ const About = () => {
                         <div className="space-y-4 w-full mt-10 ">
                             {userDetails.map((detail, index) => (
                                 <div key={index} className=" w-full flex  gap-5">
-                                    <span className="font-bold w-[25%] text-yellow-500">{detail.key} :</span>
+                                    <span className="font-bold w-[25%] text-yellow-500">{detail.key}</span>
                                     <span >{detail.value}</span>
                                 </div>
                             ))}
