@@ -54,9 +54,36 @@
     z-index: -1;
 }
 
+.about-heading {
+    position: relative;
+    text-align: center;
+    font-weight: bold;
+    font-size: 2rem;
+    color: rgb(173, 172, 172);
+    /* Adjust as needed */
+    margin-bottom: 2rem;
+    /* Adjust as needed */
+    z-index: 2;
+}
+
+.about-heading::before {
+    content: 'About Me';
+    /* Duplicate the heading text */
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    font-size: 4rem;
+    /* Larger font size for the background text */
+    color: rgba(255, 255, 255, 0.059);
+    /* Light color for the background text */
+    z-index: -1;
+}
+
 @media (max-width: 600px) {
     .skills-heading {
-        font-size: 3rem;
+        font-size: 4rem;
         padding-bottom: 5rem;
 
         /* Reduce font size for small screens */
@@ -72,17 +99,33 @@
     }
 
     .contact-heading {
-        font-size: 3rem;
+        font-size: 3.5rem;
         padding-bottom: 5rem;
         /* Reduce font size for small screens */
-        margin-bottom: 1.5rem;
+        margin-bottom: 1rem;
+        width: 100%;
         /* Adjust margin as needed */
     }
 
     .contact-heading::before {
         font-size: 4rem;
         padding-bottom: 10rem;
+        width: 100%;
 
         /* Reduce font size for background text */
+    }
+
+    .about-heading {
+        font-size: 4rem;
+        padding-bottom: 5rem;
+        width: 100%;
+        padding-top: 3rem;
+    }
+
+    .about-heading::before {
+        font-size: 4.5rem;
+        padding-bottom: 10rem;
+        width: 100%;
+
     }
 }
