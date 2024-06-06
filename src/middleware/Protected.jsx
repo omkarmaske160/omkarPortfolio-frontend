@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useCheckAdminMutation } from '../api/adminApi';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast } from "react-toastify"
 
 const Protected = () => {
@@ -39,12 +39,14 @@ const Protected = () => {
         }
     }, [isSuccess])
     return <>
-        <div className="flex flex-col items-center justify-center h-screen border-4 border-gray-300">
+        <div className="flex flex-col items-center justify-center  h-screen border-4 border-gray-500">
+            <Link to='/' className='px-6 py-2 bg-yellow-500 rounded-xl font-bold hover:bg-yellow-400 transition-all duration-300'>Home</Link>
             <h1 className="text-3xl font-bold mb-8">Enter Number : </h1>
             <input
                 type="text"
                 value={inputValue}
                 onChange={handleInputChange}
+                placeholder='Enter Password'
                 className="w-1/2 mb-4 p-2 border border-gray-300 rounded-md"
             />
             <div className="grid grid-cols-3 gap-4 mb-8">
