@@ -18,10 +18,22 @@ export const adminApi = createApi({
 
             }),
 
+            addProject: builder.mutation({
+                query: data => {
+                    return {
+                        url: "/addProject",
+                        method: "POST",
+                        body: data
+                    }
+                },
+                providesTags: ["admin"],
+
+            }),
+
 
 
         }
     }
 })
 
-export const { useCheckAdminMutation } = adminApi
+export const { useCheckAdminMutation, useAddProjectMutation } = adminApi

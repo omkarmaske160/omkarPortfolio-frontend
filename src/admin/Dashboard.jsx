@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ProjectModal from './ProjectModal';
 import CertificateModal from './CertificateModal';
+import { useAddProjectMutation } from '../api/adminApi';
 
 const Dashboard = () => {
     // Dummy data for projects and certificates
@@ -25,12 +26,14 @@ const Dashboard = () => {
         {
             title: 'Certificate One',
             description: 'This is a description of certificate one.',
-            link: 'https://certificate-one.com',
+            platform: 'Coursera',
+            date: 'March 2003',
         },
         {
             title: 'Certificate Two',
             description: 'This is a description of certificate two.',
-            link: 'https://certificate-two.com',
+            platform: 'Udemy',
+            date: 'May 2011',
         },
     ];
 
@@ -42,34 +45,11 @@ const Dashboard = () => {
 
     const addProject = (project) => {
         setNewProjects([...newProjects, project]);
+
     };
 
     const addCertificate = (certificate) => {
         setNewCertificates([...newCertificates, certificate]);
-    };
-
-    const deleteProject = (index, isDummy) => {
-        if (isDummy) {
-            const updatedDummyProjects = [...dummyProjects];
-            updatedDummyProjects.splice(index, 1);
-            setDummyProjects(updatedDummyProjects);
-        } else {
-            const updatedNewProjects = [...newProjects];
-            updatedNewProjects.splice(index, 1);
-            setNewProjects(updatedNewProjects);
-        }
-    };
-
-    const deleteCertificate = (index, isDummy) => {
-        if (isDummy) {
-            const updatedDummyCertificates = [...dummyCertificates];
-            updatedDummyCertificates.splice(index, 1);
-            setDummyCertificates(updatedDummyCertificates);
-        } else {
-            const updatedNewCertificates = [...newCertificates];
-            updatedNewCertificates.splice(index, 1);
-            setNewCertificates(updatedNewCertificates);
-        }
     };
 
     const combinedProjects = [...dummyProjects, ...newProjects];
@@ -100,7 +80,7 @@ const Dashboard = () => {
                             <div key={index} className="relative bg-white p-4 rounded shadow-md hover:shadow-lg transition-shadow duration-300 group">
                                 <h3 className="text-xl font-bold mb-2">{project.title}</h3>
                                 <p className="mb-2">{project.description}</p>
-                                <p className="mb-2">Languages: {project.languages.join(', ')}</p>
+                                <p className="mb-2">Languages: {project.languages ? project.languages.join(', ') : ''}</p>
                                 <p>
                                     <a href={project.githubLink} className="text-blue-600 hover:underline">
                                         GitHub
@@ -112,7 +92,6 @@ const Dashboard = () => {
                                 </p>
                                 <div className="absolute bottom-4 right-4 flex flex-col items-end space-y-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                     <button
-                                        onClick={() => deleteProject(index, index < dummyProjects.length)}
                                         className="px-2 py-1 bg-red-600 text-white rounded"
                                     >
                                         Delete
@@ -123,20 +102,16 @@ const Dashboard = () => {
                     </div>
                 </div>
                 <div>
-                    <h2 className="text-2xl font-semibold mb-3">Certificates</h2>
+                    <h2 className="text-2xl font-semibold mb-3 mt-5">Certificates</h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                         {combinedCertificates.map((certificate, index) => (
                             <div key={index} className="relative bg-white p-4 rounded shadow-md hover:shadow-lg transition-shadow duration-300 group">
                                 <h3 className="text-xl font-bold mb-2">{certificate.title}</h3>
+                                <p className="mb-2">{certificate.platform}</p>
                                 <p className="mb-2">{certificate.description}</p>
-                                <p>
-                                    <a href={certificate.link} className="text-blue-600 hover:underline">
-                                        View Certificate
-                                    </a>
-                                </p>
+                                <p>{certificate.date}</p>
                                 <div className="absolute bottom-4 right-4 flex flex-col items-end space-y-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                     <button
-                                        onClick={() => deleteCertificate(index, index < dummyCertificates.length)}
                                         className="px-2 py-1 bg-red-600 text-white rounded"
                                     >
                                         Delete
@@ -159,6 +134,7 @@ const Dashboard = () => {
                     addCertificate={addCertificate}
                 />
             )}
+
         </div>
     );
 };

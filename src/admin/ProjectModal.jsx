@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
+import { useAddProjectMutation } from '../api/adminApi';
 
 const ProjectModal = ({ closeModal, addProject }) => {
+    const [addProjectFn, { isSuccess, isError }] = useAddProjectMutation();
+
     const [formState, setFormState] = useState({
         title: '',
         description: '',
-        language: '',
         languages: [],
         githubLink: '',
-        liveLink: ''
+        liveLink: '',
+        project_image: null // Store file object here
     });
 
     const handleInputChange = (e) => {
@@ -15,6 +18,14 @@ const ProjectModal = ({ closeModal, addProject }) => {
         setFormState({
             ...formState,
             [name]: value
+        });
+    };
+
+    const handleFileChange = (e) => {
+        const file = e.target.files[0]; // Get the first file from the input
+        setFormState({
+            ...formState,
+            project_image: file
         });
     };
 
@@ -37,13 +48,17 @@ const ProjectModal = ({ closeModal, addProject }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        addProject({
-            title: formState.title,
-            description: formState.description,
-            languages: formState.languages,
-            githubLink: formState.githubLink,
-            liveLink: formState.liveLink,
-        });
+
+        const formData = new FormData();
+        formData.append('title', formState.title);
+        formData.append('description', formState.description);
+        formState.languages.forEach((lang) => formData.append('languages[]', lang));
+        formData.append('githubLink', formState.githubLink);
+        formData.append('liveLink', formState.liveLink);
+        formData.append('project_image', formState.project_image); // Append file object
+
+        addProjectFn(formData);
+        addProject(formData);
         closeModal();
     };
 
@@ -51,7 +66,18 @@ const ProjectModal = ({ closeModal, addProject }) => {
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
             <div className="bg-white p-5 rounded shadow-lg w-full max-w-lg">
                 <h2 className="text-2xl font-bold mb-4">Add New Project</h2>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} encType="multipart/form-data">
+                    <div className="mb-4">
+                        <label className="block text-gray-700">Project Image</label>
+                        <input
+                            type="file"
+                            name="project_image"
+                            onChange={handleFileChange}
+                            className="w-full px-3 py-2 border rounded"
+                            accept="image/*" // Accept only image files
+                            required
+                        />
+                    </div>
                     <div className="mb-4">
                         <label className="block text-gray-700">Title</label>
                         <input
