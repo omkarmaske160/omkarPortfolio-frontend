@@ -29,6 +29,19 @@ export const adminApi = createApi({
                 providesTags: ["admin"],
 
             }),
+            getProject: builder.query({
+                query: () => {
+                    return {
+                        url: "/getProject",
+                        method: "GET",
+
+                    }
+                },
+                invalidatesTags: ["admin"],
+                transformResponse: data => data.result
+
+
+            }),
 
 
 
@@ -36,4 +49,4 @@ export const adminApi = createApi({
     }
 })
 
-export const { useCheckAdminMutation, useAddProjectMutation } = adminApi
+export const { useCheckAdminMutation, useAddProjectMutation, useGetProjectQuery } = adminApi

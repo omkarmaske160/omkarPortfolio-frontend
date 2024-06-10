@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useAddProjectMutation } from '../api/adminApi';
 
-const ProjectModal = ({ closeModal, addProject }) => {
+const ProjectModal = ({ closeModal }) => {
     const [addProjectFn, { isSuccess, isError }] = useAddProjectMutation();
 
     const [formState, setFormState] = useState({
@@ -58,7 +58,7 @@ const ProjectModal = ({ closeModal, addProject }) => {
         formData.append('project_image', formState.project_image); // Append file object
 
         addProjectFn(formData);
-        addProject(formData);
+
         closeModal();
     };
 

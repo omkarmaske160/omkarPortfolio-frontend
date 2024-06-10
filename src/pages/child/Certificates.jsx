@@ -5,16 +5,16 @@ import { faAward, faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
 const Certificates = () => {
     const certificateData = [
         {
-            title: "React Certification",
-            organization: "Coursera",
+            title: "Javascript",
+            organization: "sololearn.",
             date: "July 2020",
-            description: "Completed a certification course on React.js fundamentals."
+            description: "Completed a certification course on Javascript fundamentals."
         },
         {
-            title: "Web Design Specialization",
-            organization: "Udemy",
-            date: "March 2019",
-            description: "Earned a specialization certificate in modern web design techniques."
+            title: "HTML, CSS",
+            organization: "sololearn.",
+            date: "July 2023",
+            description: "Earned a specialization certificate in HTML, CSS techniques."
         }
     ];
 

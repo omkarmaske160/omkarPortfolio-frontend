@@ -10,7 +10,7 @@ const About = () => {
         { key: 'Phone', value: '+91 8080328556' }
     ];
     return <>
-        <div className=" text-white p-8 w-full  md:mb-16">
+        <div id='resume' className=" text-white p-8 w-full  md:mb-16">
             <div className="max-w-screen-lg mx-auto">
                 <div className="flex flex-col md:flex-row items-center md:items-start md:gap-10">
                     <div className="flex-shrink-0 mb-6 md:mb-0 md:mr-6 w-1/2">
@@ -34,9 +34,13 @@ const About = () => {
                             ))}
                         </div>
 
+
                         <div className='w-full flex justify-center mt-5 md:justify-start'>
-                            <button className="bg-yellow-500  mt-7  hover:text-slate-700 hover:bg-yellow-400 transition-all duration-300 font-bold text-black px-5 py-3 rounded-full">
-                                DOWNLOAD CV
+                            <button
+                                onClick={() => window.location.href = 'https://drive.google.com/uc?export=download&id=1raH45wO3PxyJSiEyLOJJQRV1tK-_EwuP'}
+                                className="bg-yellow-500 mt-7 hover:text-slate-700 hover:bg-yellow-400 transition-all duration-300 font-bold text-black px-5 py-3 rounded-full"
+                            >
+                                DOWNLOAD RESUME
                             </button>
                         </div>
                     </div>
