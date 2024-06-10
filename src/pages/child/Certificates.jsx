@@ -19,7 +19,7 @@ const Certificates = () => {
     ];
 
     return (
-        <section className="py-16 px-4 md:px-8">
+        <section to="certificate" className="py-16 px-4 md:px-8">
             <h2 className="certificate-heading text-3xl font-bold mb-12">Certificates</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-20">
                 {certificateData.map((certificate, index) => (
