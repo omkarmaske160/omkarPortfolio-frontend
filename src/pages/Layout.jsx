@@ -9,6 +9,8 @@ import Experience from './child/Experience'
 import Certificates from './child/Certificates'
 import Contact from './child/Contact'
 import MainComponent from '../components/MainComponent'
+import HireMe from './child/HireMe'
+import Footer from '../components/Footer'
 
 const Layout = () => {
     return <>
@@ -20,8 +22,10 @@ const Layout = () => {
             <Projects />
             <Education />
             <Experience />
+            <HireMe />
             <Certificates />
             <Contact />
+            <Footer />
         </div>
     </>
 }

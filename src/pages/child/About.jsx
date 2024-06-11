@@ -40,7 +40,7 @@ const About = () => {
                                 onClick={() => window.location.href = 'https://drive.google.com/uc?export=download&id=1raH45wO3PxyJSiEyLOJJQRV1tK-_EwuP'}
                                 className="bg-yellow-500 mt-7 hover:text-slate-700 hover:bg-yellow-400 transition-all duration-300 font-bold text-black px-5 py-3 rounded-full"
                             >
-                                DOWNLOAD RESUME
+                                DOWNLOAD CV
                             </button>
                         </div>
                     </div>

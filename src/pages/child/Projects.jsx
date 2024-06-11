@@ -49,6 +49,14 @@ const Projects = () => {
                     </div>
                 ))}
             </div>
+            <div className='w-full flex justify-center mt-10 '>
+                <button
+                    onClick={() => window.location.href = 'https://drive.google.com/uc?export=download&id=1raH45wO3PxyJSiEyLOJJQRV1tK-_EwuP'}
+                    className="bg-yellow-500 mt-7 hover:text-slate-700 hover:bg-yellow-400  transition-all duration-300 font-bold text-black px-10 py-3 rounded-full"
+                >
+                    DOWNLOAD CV
+                </button>
+            </div>
         </section>
     );
 }

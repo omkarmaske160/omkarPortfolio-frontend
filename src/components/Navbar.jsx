@@ -22,7 +22,7 @@ const Navbar = () => {
 
     return (
         <header
-            className={`fixed top-0 left-0 w-full p-4 flex justify-between items-center z-50 transition-colors duration-300 ${isScrolled ? 'bg-gray-900' : 'bg-slate-800'
+            className={`fixed top-0 left-0 w-full px-10 p-4 flex justify-between items-center z-50 transition-colors duration-300 ${isScrolled ? 'bg-gray-900' : 'bg-slate-800'
                 } text-white`}
         >
             <ScrollLink
@@ -53,6 +53,16 @@ const Navbar = () => {
                             className="hover:text-yellow-500 cursor-pointer"
                         >
                             Projects
+                        </ScrollLink>
+                    </li>
+                    <li>
+                        <ScrollLink
+                            to="service"
+                            smooth={true}
+                            duration={500}
+                            className="hover:text-yellow-500 cursor-pointer"
+                        >
+                            Service
                         </ScrollLink>
                     </li>
                     <li>
