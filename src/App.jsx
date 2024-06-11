@@ -5,11 +5,13 @@ import Protected from './middleware/Protected';
 import Layout from './pages/Layout';
 import Dashboard from './admin/Dashboard';
 import 'react-toastify/dist/ReactToastify.css'
+import { ToastContainer } from 'react-toastify';
 
 
 const App = () => {
   return <>
     <BrowserRouter>
+      <ToastContainer />
       <Routes>
         <Route path='/' element={<Layout />} />
         <Route path='/protected' element={<Protected />} />

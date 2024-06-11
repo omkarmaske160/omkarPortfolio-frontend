@@ -41,6 +41,18 @@ export const adminApi = createApi({
                 transformResponse: data => data.result
 
 
+
+            }),
+
+            addFeedback: builder.mutation({
+                query: feedbackData => {
+                    return {
+                        url: "/add-feedback",
+                        method: "POST",
+                        body: feedbackData
+                    }
+                },
+                providesTags: ["email"]
             }),
 
 
@@ -49,4 +61,4 @@ export const adminApi = createApi({
     }
 })
 
-export const { useCheckAdminMutation, useAddProjectMutation, useGetProjectQuery } = adminApi
+export const { useCheckAdminMutation, useAddProjectMutation, useGetProjectQuery, useAddFeedbackMutation } = adminApi

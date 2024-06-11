@@ -11,6 +11,7 @@ import Contact from './child/Contact'
 import MainComponent from '../components/MainComponent'
 import HireMe from './child/HireMe'
 import Footer from '../components/Footer'
+import Service from './child/Service'
 
 const Layout = () => {
     return <>
@@ -21,6 +22,7 @@ const Layout = () => {
             <Skills />
             <Projects />
             <Education />
+            <Service />
             <Experience />
             <HireMe />
             <Certificates />

@@ -54,6 +54,32 @@
     z-index: -1;
 }
 
+.service-heading {
+    position: relative;
+    text-align: center;
+    font-weight: bold;
+    font-size: 3rem;
+    color: rgb(173, 172, 172);
+    /* Adjust as needed */
+    margin-bottom: 2rem;
+    /* Adjust as needed */
+    z-index: 2;
+}
+
+.service-heading::before {
+    content: 'Services';
+    /* Duplicate the heading text */
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 5rem;
+    /* Larger font size for the background text */
+    color: rgba(255, 255, 255, 0.059);
+    /* Light color for the background text */
+    z-index: -1;
+}
+
 .education-heading {
     position: relative;
     text-align: center;
@@ -236,7 +262,7 @@
 
     }
 
-    .projec-heading {
+    .project-heading {
         font-size: 4rem;
         padding-bottom: 5rem;
         width: 100%;
@@ -244,6 +270,20 @@
     }
 
     .project-heading::before {
+        font-size: 4.5rem;
+        padding-bottom: 10rem;
+        width: 100%;
+
+    }
+
+    .service-heading {
+        font-size: 4rem;
+        padding-bottom: 5rem;
+        width: 100%;
+        padding-top: 3rem;
+    }
+
+    .service-heading::before {
         font-size: 4.5rem;
         padding-bottom: 10rem;
         width: 100%;

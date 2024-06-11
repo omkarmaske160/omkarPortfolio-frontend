@@ -10,10 +10,11 @@ const HireMe = () => {
                     I’m <span className="text-yellow-500">Available</span> for freelancing
                 </h1>
                 <p className="mt-4 text-lg max-w-md mx-auto mb-10">
-                    A small river named Duden flows by their place and supplies it with the necessary regelialia.
+                    I specialize in web and app development, creating modern, responsive websites and mobile applications
+                    that deliver exceptional user experiences.
                 </p>
 
-                <ScrollLink to="contact" smooth={true} duration={500} className={` px-16 py-4 text-sm bg-yellow-500 hover:text-white text-black font-semibold rounded-full hover:bg-yellow-400 transition duration-300`} >
+                <ScrollLink to="contact" smooth={true} duration={500} className={` cursor-pointer px-16 py-4 text-sm bg-yellow-500  text-black font-semibold rounded-full hover:bg-yellow-600 transition duration-300`} >
                     HIRE ME
                 </ScrollLink>
             </div>
