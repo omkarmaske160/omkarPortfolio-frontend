@@ -13,7 +13,7 @@ const Projects = () => {
                 {data && data.map((project, index) => (
                     <div
                         key={index}
-                        className="relative group bg-slate-700 rounded-lg hover:rounded-none shadow-md overflow-hidden h-[24rem] "
+                        className="relative group bg-slate-700 rounded-lg hover:rounded-none shadow-md overflow-hidden h-[26rem] "
                     >
                         <a href={project.liveLink} className="block h-full">
                             <img

@@ -26,7 +26,7 @@ export const adminApi = createApi({
                         body: data
                     }
                 },
-                providesTags: ["admin"],
+                invalidatesTags: ["admin"],
 
             }),
             getProject: builder.query({
@@ -37,7 +37,7 @@ export const adminApi = createApi({
 
                     }
                 },
-                invalidatesTags: ["admin"],
+                providesTags: ["admin"],
                 transformResponse: data => data.result
 
 
@@ -52,7 +52,16 @@ export const adminApi = createApi({
                         body: feedbackData
                     }
                 },
-                providesTags: ["email"]
+                invalidatesTags: ["admin"]
+            }),
+            deleteProject: builder.mutation({
+                query: id => {
+                    return {
+                        url: `/deleteProject/${id}`,
+                        method: "DELETE",
+                    }
+                },
+                invalidatesTags: ["admin"]
             }),
 
 
@@ -61,4 +70,4 @@ export const adminApi = createApi({
     }
 })
 
-export const { useCheckAdminMutation, useAddProjectMutation, useGetProjectQuery, useAddFeedbackMutation } = adminApi
+export const { useCheckAdminMutation, useAddProjectMutation, useGetProjectQuery, useAddFeedbackMutation, useDeleteProjectMutation } = adminApi

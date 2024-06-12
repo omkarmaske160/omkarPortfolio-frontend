@@ -1,47 +1,19 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ProjectModal from './ProjectModal';
-import { useGetProjectQuery } from '../api/adminApi';
+import { useDeleteProjectMutation, useGetProjectQuery } from '../api/adminApi';
+import { toast } from 'react-toastify'
 
 const Dashboard = () => {
     // Dummy data for projects and certificates
     const { data } = useGetProjectQuery()
-    const dummyProjects = [
-        {
-            title: 'Project One',
-            description: 'This is a description of project one.',
-            languages: ['JavaScript', 'React'],
-            githubLink: 'https://github.com/project-one',
-            liveLink: 'https://project-one-live.com',
-        },
-        {
-            title: 'Project Two',
-            description: 'This is a description of project two.',
-            languages: ['Python', 'Django'],
-            githubLink: 'https://github.com/project-two',
-            liveLink: 'https://project-two-live.com',
-        },
-    ];
-
-    const dummyCertificates = [
-        {
-            title: 'Certificate One',
-            description: 'This is a description of certificate one.',
-            platform: 'Coursera',
-            date: 'March 2003',
-        },
-        {
-            title: 'Certificate Two',
-            description: 'This is a description of certificate two.',
-            platform: 'Udemy',
-            date: 'May 2011',
-        },
-    ];
-
-
+    const [deleteProjectFn, { isSuccess, isError }] = useDeleteProjectMutation()
     const [isProjectModalOpen, setIsProjectModalOpen] = useState(false);
-    console.log(data && data);
 
-
+    useEffect(() => {
+        if (isSuccess) {
+            toast("Delete Successful")
+        }
+    }, [isSuccess])
 
 
     return (
@@ -77,6 +49,7 @@ const Dashboard = () => {
                                 <div className="absolute bottom-4 right-4 flex flex-col items-end space-y-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                     <button
                                         className="px-2 py-1 bg-red-600 text-white rounded"
+                                        onClick={e => deleteProjectFn(project._id)}
                                     >
                                         Delete
                                     </button>
@@ -87,15 +60,17 @@ const Dashboard = () => {
                 </div>
 
             </div>
-            {isProjectModalOpen && (
-                <ProjectModal
-                    closeModal={() => setIsProjectModalOpen(false)}
+            {
+                isProjectModalOpen && (
+                    <ProjectModal
+                        closeModal={() => setIsProjectModalOpen(false)}
 
-                />
-            )}
+                    />
+                )
+            }
 
 
-        </div>
+        </div >
     );
 };
 
