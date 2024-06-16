@@ -11,9 +11,12 @@ export default {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-20px)' },
         },
+
       },
       animation: {
-        float: 'float 3s ease-in-out infinite',
+        float1: 'float 3s ease-in-out infinite',
+        float2: 'float 4s ease-in  infinite',
+        float: 'float 2s ease-out infinite',
       },
     },
   },
