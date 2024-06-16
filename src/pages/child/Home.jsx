@@ -10,12 +10,14 @@ import { Link as ScrollLink } from 'react-scroll';
 
 const Home = () => {
     const iconVariants = {
-        hidden: { opacity: 0, scale: 0 },
-        visible: {
+        hidden: { opacity: 0, scale: 0, x: "0%", y: "0%" },
+        visible: (custom) => ({
             opacity: 1,
             scale: 1,
+            x: custom.x,
+            y: custom.y,
             transition: { duration: 1.2, ease: 'easeOut' },
-        },
+        }),
     };
 
     const textVariants = {
@@ -27,62 +29,81 @@ const Home = () => {
         },
     };
 
+    const buttonVariants = {
+        hidden: { opacity: 0, scale: 0, x: "0%", y: "0%" },
+        visible: {
+            opacity: 1,
+            scale: 1,
+            x: "0%",
+            y: "0%",
+            transition: { duration: 1.2, ease: 'easeOut', delay: 1.2 },
+        },
+    };
+
     return (
         <>
             <section id="home" className="bg-slate-900 h-screen text-white py-20 px-4 md:px-8 flex flex-col items-center justify-center relative">
                 {/* Icons with Framer Motion animations */}
                 <motion.div
+                    custom={{ x: "-34%", y: "-14%" }}
                     variants={iconVariants}
                     initial="hidden"
                     animate="visible"
+                    className="absolute md:top-36 md:left-[16%] top-[7%] left-[17%] "
+
                 >
-                    <RiReactjsFill className="absolute top-36 left-[16%] text-yellow-300 w-24 h-24  animate-float" // Increased size to w-32 h-32
-                    />
+                    <RiReactjsFill className="text-yellow-300 w-24 h-24 animate-float" />
                 </motion.div>
 
                 <motion.div
+                    custom={{ x: "20%", y: "-14%" }}
                     variants={iconVariants}
                     initial="hidden"
                     animate="visible"
+                    className="absolute md:top-[30%] md:right-20 top-[25%] right-[7%] "
+
                 >
-                    <DiNodejs className="absolute top-36 right-20 text-yellow-500 w-24 h-24  animate-float1" // Increased size to w-32 h-32
-                    />
+                    <DiNodejs className="text-yellow-500 w-24 h-24 animate-float1" />
                 </motion.div>
 
                 <motion.div
+                    custom={{ x: "-40%", y: "0%" }}
                     variants={iconVariants}
                     initial="hidden"
                     animate="visible"
+                    className="absolute   md:bottom-[30%] md:left-[5%] bottom-[15%] left-[5%]"
                 >
-                    <SiMongodb className="absolute bottom-[30%] left-[10%] text-yellow-400 w-24 h-24  animate-float1" // Increased size to w-32 h-32
-                    />
+                    <SiMongodb className="text-yellow-400 w-24 h-24 animate-float1" />
                 </motion.div>
 
                 <motion.div
+                    custom={{ x: "25%", y: "30%" }}
                     variants={iconVariants}
                     initial="hidden"
                     animate="visible"
+                    className="absolute md:bottom-48 md:right-[25%] bottom-[5%] right-[20%]"
                 >
-                    <TbBrandJavascript className="absolute bottom-48 right-[25%] text-yellow-300 w-24 h-24  animate-float" // Increased size to w-32 h-32
-                    />
+                    <TbBrandJavascript className="text-yellow-300 w-24 h-24 animate-float" />
                 </motion.div>
 
                 <motion.div
+                    custom={{ x: "10%", y: "-40%" }}
                     variants={iconVariants}
                     initial="hidden"
                     animate="visible"
+                    className="absolute md:top-[15%] md:left-[60%] hidden md:block"
                 >
-                    <FaGithub className="absolute top-24 left-[60%] transform -translate-x-1/2 -translate-y-1/2 text-yellow-300 w-14 h-14 animate-float2" // Increased size to w-20 h-20
-                    />
+                    <FaGithub className="text-yellow-300 w-14 h-14 animate-float2" />
                 </motion.div>
 
                 <motion.div
+                    custom={{ x: "-20%", y: "30%" }}
                     variants={iconVariants}
                     initial="hidden"
                     animate="visible"
+                    className="absolute md:bottom-20 md:left-[30%] hidden md:block"
                 >
-                    <TbBrandTailwind className="absolute bottom-20 left-[30%] text-yellow-400 w-24 h-24 animate-float2" // Increased size to w-32 h-32
-                    />
+                    <TbBrandTailwind className="text-yellow-400 w-24 h-24 animate-float2" />
                 </motion.div>
 
                 {/* Title and description */}
@@ -122,10 +143,16 @@ const Home = () => {
                 </motion.p>
 
                 {/* Scroll Link */}
-                <ScrollLink to="contact" smooth={true} duration={500} className="bg-yellow-400 hover:bg-yellow-500 text-white font-medium py-3 px-10 rounded-md transition-colors">
-                    Hire Me
-                </ScrollLink>
-            </section>
+                <motion.div
+                    variants={buttonVariants}
+                    initial="hidden"
+                    animate="visible"
+                >
+                    <ScrollLink to="contact" smooth={true} duration={500} className=" cursor-pointer text-lg bg-yellow-500 mt-7 hover:text-slate-700 hover:bg-yellow-400 text-black  font-bold duration-300 py-3 px-10 rounded-md transition-all">
+                        Hire Me
+                    </ScrollLink>
+                </motion.div>
+            </section >
         </>
     );
 };
