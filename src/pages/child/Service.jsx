@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion'; // Import motion and AnimatePresence from framer-motion
 import { FaLaptopCode, FaMobileAlt, FaPalette } from 'react-icons/fa';
 import { Link as ScrollLink } from 'react-scroll';
+import { useInView } from 'react-intersection-observer';
 
 const Services = () => {
     const services = [
@@ -35,12 +37,30 @@ const Services = () => {
             ]
         },
     ];
+    const { ref, inView } = useInView({
+        triggerOnce: true,
+        threshold: 0.2, // Adjust threshold as needed
+    });
 
-    const ServiceCard = ({ service }) => {
+    const buttonVariants = {
+        hidden: { opacity: 0, scale: 0, x: "0%", y: "0%" },
+        visible: {
+            opacity: 1,
+            scale: 1,
+            x: "0%",
+            y: "0%",
+            transition: { duration: 1.2, ease: 'easeOut', delay: 2 },
+        },
+    };
+
+    const ServiceCard = ({ service, index }) => {
         const [hover, setHover] = useState(false);
 
         return (
-            <div
+            <motion.div
+                initial={{ x: -1000, opacity: 0 }} // Initial animation state (off-screen left)
+                animate={{ x: 0, opacity: 1 }} // Animation when card enters (to its final position)
+                transition={{ duration: 1, delay: index * 0.3 }} // Animation duration and staggered delay
                 className={`relative h-[17rem] bg-slate-700 text-white p-5 rounded-lg cursor-pointer transition-all duration-500 ${hover ? 'bg-gradient-to-tl from-blue-700 to-yellow-700 rounded-none' : ''}`}
                 onMouseEnter={() => setHover(true)}
                 onMouseLeave={() => setHover(false)}
@@ -53,30 +73,44 @@ const Services = () => {
                     <div className="absolute inset-0 flex items-center justify-center text-center p-5 rounded-xl transition-opacity duration-500">
                         <ul className="list-disc list-inside text-left space-y-3">
                             {service.description.map((point, index) => (
-                                <li key={index} >{point}</li>
+                                <li key={index}>{point}</li>
                             ))}
                         </ul>
                     </div>
                 )}
-            </div>
+            </motion.div>
         );
     };
 
-    return <div id='service'>
-        <h2 className="service-heading">Services</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 p-10">
+    return (
+        <div id='service'>
+            <motion.h2
+                initial='hidden'
+                animate={inView ? 'visible' : 'hidden'}
+                variants={{
+                    hidden: { opacity: 0, y: 100 },
+                    visible: { opacity: 1, y: 0, transition: { duration: 1, delay: 0.5 } },
+                }}
+                className="service-heading">Services</motion.h2>
+            <div ref={ref} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 p-10">
+                <AnimatePresence>
+                    {services.map((service, index) => (
+                        <ServiceCard key={index} service={service} index={index} />
+                    ))}
+                </AnimatePresence>
+            </div>
+            <motion.div
+                variants={buttonVariants}
+                initial="hidden"
+                animate="visible"
 
-            {services.map((service, index) => (
-                <ServiceCard key={index} service={service} />
-            ))}
+                className='flex justify-center -mt-5 cursor-pointer'>
+                <ScrollLink to="contact" smooth={true} duration={500} className={` px-16 py-4 text-sm bg-yellow-500  text-black font-semibold rounded-full hover:bg-yellow-600 transition duration-300`} >
+                    CONTACT ME
+                </ScrollLink>
+            </motion.div>
         </div>
-        <div className='flex justify-center -mt-5 cursor-pointer'>
-            <ScrollLink to="contact" smooth={true} duration={500} className={` px-16 py-4 text-sm bg-yellow-500  text-black font-semibold rounded-full hover:bg-yellow-600 transition duration-300`} >
-                CONTACT ME
-            </ScrollLink>
-        </div>
-
-    </div>
+    );
 };
 
 export default Services;

@@ -15,7 +15,7 @@ import Service from './child/Service'
 
 const Layout = () => {
     return <>
-        <div className="flex flex-col min-h-[100dvh] bg-slate-900">
+        <div className="flex flex-col min-h-[100dvh] bg-slate-900 overflow-hidden">
             <MainComponent />
             <Home />
             <About />

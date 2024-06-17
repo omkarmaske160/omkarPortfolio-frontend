@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAddFeedbackMutation } from '../../api/adminApi';
 import { toast } from 'react-toastify';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 const Contact = () => {
     const [formData, setFormData] = useState({});
@@ -31,13 +33,48 @@ const Contact = () => {
             toast("Email is Successfully Send")
         }
     }, [isSuccess])
+    const { ref, inView } = useInView({
+        triggerOnce: true,
+        threshold: 0.2, // Adjust threshold as needed
+    });
 
+    const imageVariants = {
+        hidden: { opacity: 0, x: -200 },
+        visible: {
+            opacity: 1,
+            x: 0,
+            transition: { duration: 1, ease: 'easeOut', delay: 0.7 },
+        },
+    };
+
+    const descriptionVariants = {
+        hidden: { opacity: 0, x: 200 },
+        visible: {
+            opacity: 1,
+            x: 0,
+            transition: { duration: 1, ease: 'easeOut', delay: 1 },
+        },
+    };
     return (
-        <section id="contact" className="bg-gray-900 text-white p-8 mt-10">
-            <h2 className="contact-heading">Contact Me</h2>
+        <section ref={ref} id="contact" className="bg-gray-900 text-white p-8 mt-10">
+            <motion.h2
+                initial='hidden'
+                animate={inView ? 'visible' : 'hidden'}
+                variants={{
+                    hidden: { opacity: 0, y: 100 },
+                    visible: { opacity: 1, y: 0, transition: { duration: 1, delay: 0.5 } },
+                }}
+                className="contact-heading">Contact Me</motion.h2>
 
             <div className="container mx-auto pt-10">
-                <div className="flex flex-col items-center mb-8 space-y-4 md:flex-row md:space-y-0 md:space-x-8 justify-center">
+                <motion.div
+                    initial='hidden'
+                    animate={inView ? 'visible' : 'hidden'}
+                    variants={{
+                        hidden: { opacity: 0, y: 100 },
+                        visible: { opacity: 1, y: 0, transition: { duration: 1, delay: 0.5 } },
+                    }}
+                    className="flex flex-col items-center mb-8 space-y-4 md:flex-row md:space-y-0 md:space-x-8 justify-center">
                     <div className="text-center">
                         <i className="fas fa-map-marker-alt text-4xl text-yellow-500 mb-2"></i>
                         <h3 className="text-xl font-bold text-yellow-500">ADDRESS</h3>
@@ -53,12 +90,22 @@ const Contact = () => {
                         <h3 className="text-xl font-bold text-yellow-500">EMAIL ADDRESS</h3>
                         <p>omkarmaske160@gmail.com</p>
                     </div>
-                </div>
+                </motion.div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-5">
-                    <Link to="/protected" className="md:flex md:justify-center hidden cursor-default">
-                        <img src="https://img.freepik.com/free-vector/internship-job-illustration_52683-49386.jpg?t=st=1717562191~exp=1717565791~hmac=4e21df7114b5532417858ebe9482f4c490ba4c3a71016099fa75024203962a51&w=740" alt="Dummy" className="rounded-lg w-[80%]" />
-                    </Link>
-                    <div className="bg-gray-800 p-8 rounded-lg">
+                    <motion.div
+                        initial="hidden"
+                        animate={inView ? "visible" : "hidden"}
+                        variants={imageVariants}>
+
+                        <Link to="/protected" className="md:flex md:justify-center hidden cursor-default">
+                            <img src="https://img.freepik.com/free-vector/internship-job-illustration_52683-49386.jpg?t=st=1717562191~exp=1717565791~hmac=4e21df7114b5532417858ebe9482f4c490ba4c3a71016099fa75024203962a51&w=740" alt="Dummy" className="rounded-lg w-[80%]" />
+                        </Link>
+                    </motion.div>
+                    <motion.div
+                        initial="hidden"
+                        animate={inView ? "visible" : "hidden"}
+                        variants={descriptionVariants}
+                        className="bg-gray-800 p-8 rounded-lg">
                         <form onSubmit={handleSubmit} className="space-y-4">
                             <div>
                                 <label htmlFor="client_name" className="block text-lg font-bold text-yellow-500">Your Name</label>
@@ -106,7 +153,7 @@ const Contact = () => {
                             </div>
                             <button type="submit" className="bg-yellow-500 text-black px-4 py-2 rounded hover:bg-yellow-600">Send Message</button>
                         </form>
-                    </div>
+                    </motion.div>
                 </div>
             </div>
         </section>
