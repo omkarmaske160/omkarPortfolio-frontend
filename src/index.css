@@ -19,6 +19,7 @@
     /* Duplicate the heading text */
     position: absolute;
     top: 80%;
+
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 5rem;
@@ -223,6 +224,8 @@
 
     .skills-heading::before {
         top: 4rem;
+        opacity: 0.5;
+
         font-size: 4.6rem;
         width: 100%;
     }
@@ -234,6 +237,8 @@
 
     .education-heading::before {
         top: 2rem;
+        opacity: 0.5;
+
         font-size: 4.5rem;
         width: 100%;
 
@@ -250,6 +255,7 @@
     .contact-heading::before {
         font-size: 3.5rem;
         width: 100%;
+        opacity: 0.5;
 
         /* Reduce font size for background text */
     }
@@ -263,6 +269,8 @@
 
     .about-heading::before {
         top: 5.5rem;
+        opacity: 0.5;
+
         font-size: 4.11rem;
         /* padding-bottom: 1rem; */
         width: 100%;
@@ -277,6 +285,8 @@
 
     .project-heading::before {
         top: 7rem;
+        opacity: 0.5;
+
         font-size: 4.5rem;
         /* padding-bottom: 10rem; */
         width: 100%;
@@ -291,6 +301,8 @@
 
     .service-heading::before {
         top: 7rem;
+        opacity: 0.5;
+
         font-size: 4.5rem;
         width: 100%;
 
@@ -304,6 +316,8 @@
 
     .experience-heading::before {
         top: 5.5rem;
+        opacity: 0.5;
+
         font-size: 4.2rem;
         width: 100%;
 
@@ -317,9 +331,9 @@
 
     .certificate-heading::before {
         top: 5.5rem;
+        opacity: 0.5;
         font-size: 4.2rem;
         width: 100%;
-
     }
 }
 

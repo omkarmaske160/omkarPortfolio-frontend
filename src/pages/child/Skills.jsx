@@ -2,9 +2,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faJs, faJava, faReact, faNode, faGit } from '@fortawesome/free-brands-svg-icons';
-import { faDatabase, faProjectDiagram, faFileAlt, faClock } from '@fortawesome/free-solid-svg-icons';
-import { SiTailwindcss, SiMongodb, SiBootstrap, SiPhp, SiVisualstudiocode } from 'react-icons/si';
+import { faJs, faJava, faReact, faNode, faGit, faBootstrap, faPhp } from '@fortawesome/free-brands-svg-icons';
+import { faDatabase, faProjectDiagram, faFileAlt, faClock, faCode } from '@fortawesome/free-solid-svg-icons';
+import { SiTailwindcss, SiMongodb, SiVisualstudiocode } from 'react-icons/si';
 
 const Skills = () => {
     const skills = [
@@ -12,9 +12,9 @@ const Skills = () => {
             category: "Programming Languages",
             items: [
                 { name: "JavaScript", icon: faJs },
-                { name: "PHP", icon: <SiPhp /> },
+                { name: "PHP", icon: faPhp },
                 { name: "Java", icon: faJava },
-                { name: "C++", icon: faDatabase },
+                { name: "C++", icon: faCode },
             ]
         },
         {
@@ -22,16 +22,16 @@ const Skills = () => {
             items: [
                 { name: "React.js", icon: faReact },
                 { name: "Node.js", icon: faNode },
-                { name: "Tailwind", icon: <SiTailwindcss /> },
-                { name: "Bootstrap", icon: <SiBootstrap /> },
+                { name: "Tailwind", icon: SiTailwindcss },
+                { name: "Bootstrap", icon: faBootstrap },
             ]
         },
         {
             category: "Tools & Technologies",
             items: [
                 { name: "Git", icon: faGit },
-                { name: "MongoDb", icon: <SiMongodb /> },
-                { name: "VS Code", icon: <SiVisualstudiocode /> },
+                { name: "MongoDB", icon: SiMongodb },
+                { name: "VS Code", icon: SiVisualstudiocode },
                 { name: "SQL", icon: faDatabase },
             ]
         },
@@ -48,7 +48,7 @@ const Skills = () => {
 
     const { ref, inView } = useInView({
         triggerOnce: true,
-        threshold: 0.2, // Adjust threshold as needed
+        threshold: 0.2,
     });
 
     return (
@@ -66,7 +66,7 @@ const Skills = () => {
             </motion.h2>
             <div ref={ref} className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-8 md:pt-16">
                 {skills.map((skillCategory, index) => {
-                    const isLeft = index % 2 === 0; // Alternate between left and right
+                    const isLeft = index % 2 === 0;
                     const delay = index < 2 ? 0.3 * index : 0.3 * (index - 2) + 0.5;
 
                     return (
@@ -88,7 +88,7 @@ const Skills = () => {
                                         {typeof skill.icon === 'object' ? (
                                             <FontAwesomeIcon icon={skill.icon} className="mr-2 text-yellow-500" />
                                         ) : (
-                                            skill.icon
+                                            <skill.icon className="mr-2 text-yellow-500" />
                                         )}
                                         <span className="whitespace-normal">{skill.name}</span>
                                     </li>
