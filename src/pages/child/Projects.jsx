@@ -24,7 +24,7 @@ const Projects = () => {
     };
 
     return (
-        <section id="projects" className="py-16 px-4 md:px-8">
+        <section ref={ref} id="projects" className="py-16 px-4 md:px-8">
             <motion.h2 initial='hidden'
                 animate={inView ? 'visible' : 'hidden'}
                 variants={{
@@ -34,7 +34,7 @@ const Projects = () => {
                 className="project-heading">
                 Projects
             </motion.h2>
-            <div ref={ref} className="grid grid-cols-1 md:grid-cols-2  gap-8 mt-20 ">
+            <div className="grid grid-cols-1 md:grid-cols-2  gap-8 mt-20 ">
                 {data && data.map((project, index) => {
 
                     const isLeft = index % 2 === 0; // Alternate between left and right

@@ -58,10 +58,10 @@ const About = () => {
                         variants={descriptionVariants}
                     >
                         <h1 className="about-heading w-full">About Me</h1>
-                        <p className="text-gray-400 mb-4 md:pt-5">
+                        <p className="text-gray-400 mb-4 md:pt-5 -mt-16 md:mt-0 text-center md:text-left">
                             Hello, I'm a MERN stack developer specializing in React and Node.js. I thrive on crafting responsive, efficient web applications that deliver seamless user experiences.
                         </p>
-                        <div className="space-y-4 w-full mt-10">
+                        <div className="space-y-4 w-full mt-10 text-center md:text-left">
                             {userDetails.map((detail, index) => (
                                 <div key={index} className="w-full flex gap-5">
                                     <span className="font-bold w-[25%] text-yellow-500">{detail.key}</span>

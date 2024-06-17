@@ -151,7 +151,10 @@ const Contact = () => {
                                     required
                                 ></textarea>
                             </div>
-                            <button type="submit" className="bg-yellow-500 text-black px-4 py-2 rounded hover:bg-yellow-600">Send Message</button>
+                            <div className='flex justify-center'>
+                                <button type="submit" className="bg-yellow-500  text-black px-4 py-2 rounded hover:bg-yellow-600">Send Message</button>
+
+                            </div>
                         </form>
                     </motion.div>
                 </div>
