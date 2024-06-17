@@ -43,7 +43,7 @@ const Experience = () => {
                                 hidden: { opacity: 0, y: 200 },
                                 visible: { opacity: 1, y: 0, transition: { duration: 1, delay: 0.5 } },
                             }}
-                            className="bg-slate-700 p-6 rounded-md shadow-md transform transition duration-500 hover:scale-105 hover:bg-gradient-to-tl from-blue-800 to-yellow-700"
+                            className="bg-slate-700 p-6 rounded-md shadow-md transform transition duration-500 hover:scale-105 hover:bg-slate-800"
                         >
                             <h3 className="text-yellow-500 text-2xl font-bold mb-2">{experience.title}</h3>
                             <div className="flex items-center text-white mb-4 mt-5">

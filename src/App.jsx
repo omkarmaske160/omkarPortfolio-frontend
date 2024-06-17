@@ -6,6 +6,7 @@ import Layout from './pages/Layout';
 import Dashboard from './admin/Dashboard';
 import 'react-toastify/dist/ReactToastify.css'
 import { ToastContainer } from 'react-toastify';
+import 'react-simple-typewriter/dist/index';
 
 
 const App = () => {

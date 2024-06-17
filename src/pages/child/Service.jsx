@@ -61,7 +61,7 @@ const Services = () => {
                 initial={{ x: -1000, opacity: 0 }} // Initial animation state (off-screen left)
                 animate={{ x: 0, opacity: 1 }} // Animation when card enters (to its final position)
                 transition={{ duration: 1, delay: index * 0.3 }} // Animation duration and staggered delay
-                className={`relative h-[17rem] bg-slate-700 text-white p-5 rounded-lg cursor-pointer transition-all duration-500 ${hover ? 'bg-gradient-to-tl from-blue-700 to-yellow-700 rounded-none' : ''}`}
+                className={`relative h-[17rem] bg-slate-700 text-white p-5 rounded-lg cursor-pointer transition-all duration-500 ${hover ? 'bg-gradient-to-tl from-blue-900 to-yellow-900 rounded-none' : ''}`}
                 onMouseEnter={() => setHover(true)}
                 onMouseLeave={() => setHover(false)}
             >

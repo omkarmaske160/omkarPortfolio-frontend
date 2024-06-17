@@ -48,7 +48,7 @@ const Certificates = () => {
                                 hidden: { opacity: 0, x: isLeft ? -200 : 200 },
                                 visible: { opacity: 1, x: 0, transition: { duration: 0.7, delay: 0.5 } },
                             }}
-                            className="bg-slate-700 p-6 rounded-md shadow-md transform transition duration-500 hover:scale-105 hover:bg-gradient-to-tl from-blue-800 to-yellow-700">
+                            className="bg-slate-700 p-6 rounded-md shadow-md transform transition duration-500 hover:scale-105 hover:bg-slate-800">
                             <h3 className="text-yellow-500 text-2xl font-bold mb-2">{certificate.title}</h3>
                             <div className="flex items-center text-white mb-4 mt-5">
                                 <FontAwesomeIcon icon={faAward} className="mr-2 text-yellow-500" />

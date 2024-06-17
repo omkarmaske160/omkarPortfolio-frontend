@@ -4,9 +4,9 @@ import { RiReactjsFill } from 'react-icons/ri';
 import { TbBrandJavascript, TbBrandTailwind } from 'react-icons/tb';
 import { DiNodejs } from 'react-icons/di';
 import { SiMongodb } from 'react-icons/si';
-import Typewriter from 'react-typewriter-effect';
 import { FaGithub } from 'react-icons/fa';
 import { Link as ScrollLink } from 'react-scroll';
+import { Typewriter } from 'react-simple-typewriter';
 
 const Home = () => {
     const iconVariants = {
@@ -42,7 +42,12 @@ const Home = () => {
 
     return (
         <>
-            <section id="home" className="bg-slate-900 h-screen text-white py-20 px-4 md:px-8 flex flex-col items-center justify-center relative">
+            <section
+                id="home"
+                style={{ backgroundImage: "url('https://img.freepik.com/free-photo/light-background_24972-1415.jpg')" }}
+                className="bg-slate-900 h-screen bg-no-repeat bg-cover bg-center  text-white py-20 px-4 md:px-8 flex flex-col items-center justify-center relative"
+            >
+
                 {/* Icons with Framer Motion animations */}
                 <motion.div
                     custom={{ x: "-34%", y: "-14%" }}
@@ -50,7 +55,6 @@ const Home = () => {
                     initial="hidden"
                     animate="visible"
                     className="absolute md:top-36 md:left-[16%] top-[7%] left-[17%] "
-
                 >
                     <RiReactjsFill className="text-yellow-300 w-24 h-24 animate-float" />
                 </motion.div>
@@ -61,7 +65,6 @@ const Home = () => {
                     initial="hidden"
                     animate="visible"
                     className="absolute md:top-[30%] md:right-20 top-[25%] right-[7%] "
-
                 >
                     <DiNodejs className="text-yellow-500 w-24 h-24 animate-float1" />
                 </motion.div>
@@ -71,7 +74,7 @@ const Home = () => {
                     variants={iconVariants}
                     initial="hidden"
                     animate="visible"
-                    className="absolute   md:bottom-[30%] md:left-[5%] bottom-[15%] left-[5%]"
+                    className="absolute md:bottom-[30%] md:left-[5%] bottom-[15%] left-[5%]"
                 >
                     <SiMongodb className="text-yellow-400 w-24 h-24 animate-float1" />
                 </motion.div>
@@ -120,15 +123,15 @@ const Home = () => {
                     variants={textVariants}
                     initial="hidden"
                     animate="visible"
-                    className="text-2xl md:text-3xl font-bold text-white mb-8"
+                    className="text-2xl md:text-3xl font-bold text-yellow-500 mb-8"
                 >
                     <Typewriter
-                        words={['Full-Stack Web Developer', 'Mobile App Developer', 'Web Designer']}
-                        loop
+                        words={['Full Stack Web Developer', 'Web Designer', 'App Developer']}
+                        loop={true}
                         cursor
-                        cursorStyle="_"
-                        typeSpeed={70}
-                        deleteSpeed={50}
+                        cursorStyle='|'
+                        typeSpeed={80}
+                        deleteSpeed={80}
                         delaySpeed={1000}
                     />
                 </motion.h2>
@@ -148,11 +151,11 @@ const Home = () => {
                     initial="hidden"
                     animate="visible"
                 >
-                    <ScrollLink to="contact" smooth={true} duration={500} className=" cursor-pointer text-lg bg-yellow-500 mt-7 hover:text-slate-700 hover:bg-yellow-400 text-black  font-bold duration-300 py-3 px-10 rounded-md transition-all">
+                    <ScrollLink to="contact" smooth={true} duration={500} className="cursor-pointer text-lg bg-yellow-500 mt-7 hover:text-slate-700 hover:bg-yellow-400 text-black font-bold duration-300 py-3 px-10 rounded-md transition-all">
                         Hire Me
                     </ScrollLink>
                 </motion.div>
-            </section >
+            </section>
         </>
     );
 };

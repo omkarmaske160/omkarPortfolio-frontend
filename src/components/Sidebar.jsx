@@ -10,7 +10,7 @@ const Sidebar = ({ isOpen, toggle }) => {
             >
                 <div className="flex flex-col items-center pt-10  h-full">
                     <img src='./user-img.jpg' alt="" width="150px" className="rounded-[100%] border-[9px] border-slate-700 mb-4" />
-                    <h3 className="font-semibold text-[25px] text-center">Omkar Maske</h3>
+                    <h3 className="font-bold text-[26px] text-center">Omkar Maske</h3>
                     <div className={`flex flex-col gap-6 text-slate-400 px-2 pt-10`}>
                         {/* Sidebar links */}
                         <ScrollLink to="home" smooth={true} duration={500} className={`font-bold hover:text-yellow-500 cursor-pointer`} onClick={toggle}>

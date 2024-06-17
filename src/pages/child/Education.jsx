@@ -50,7 +50,7 @@ const Education = () => {
                                 visible: { opacity: 1, x: 0, transition: { duration: 0.5, delay: 0.7 } },
                             }}
                             key={index}
-                            className="bg-slate-700 p-6  rounded-md shadow-md transform transition duration-500 hover:scale-105 hover:bg-gradient-to-tl from-blue-800 to-yellow-700">
+                            className="bg-slate-700 p-6  rounded-md shadow-md transform transition duration-500 hover:scale-105 hover:bg-slate-800">
                             <h3 className="text-xl text-yellow-500 font-bold mb-2 ">{education.title}</h3>
                             <div className="flex items-center text-white mb-4 mt-5">
                                 <FontAwesomeIcon icon={faGraduationCap} className="mr-2 text-yellow-500" />

@@ -44,7 +44,7 @@ const Footer = () => {
                     <h2 className="text-2xl font-bold mb-4">Have a Questions?</h2>
                     <ul className="space-y-2 text-gray-400">
                         <li className="flex justify-center md:justify-start items-center">
-                            <FiMapPin className="text-yellow-500 text-lg mr-2" />Sai Palace Khumbarwada, Aurangabad
+                            <FiMapPin className="text-yellow-500 text-lg mr-2" />Sai Palace Khumbarwada, Chh. Sambhajinaga 431001
                         </li>
                         <li className="flex justify-center md:justify-start items-center">
                             <FiPhone className="text-yellow-500 text-lg mr-2" />+91 8080328556
